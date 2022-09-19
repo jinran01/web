@@ -16,7 +16,6 @@
                 default-tag-text="默认"
                 @add="onAdd"
                 @edit="onEdit"
-
             />
         </div>
     </div>
@@ -41,8 +40,7 @@ export default {
         const route = useRoute();
         const router = useRouter();
         const state = reactive({
-            chosenAddressId: '1',
-
+            chosenAddressId: '',
             list: []
         })
         onMounted(()=>{
@@ -51,13 +49,12 @@ export default {
                     state.list=[];
                     return;
                 }
-
                 state.list =res.data.map(item=>{
                     return{
                         id:item.id,
                         name:item.name,
                         tel:item.phone,
-                        address:`${item.province} ${item.city} ${item.county} ${item.address}`,
+                        address:`${item.city_name.str} ${item.address}`,
                         isDefault: item.is_default,
                     }
 
@@ -77,6 +74,8 @@ export default {
 
         const getAddressId = () => {
             if(getAddressId_flag =='1'){
+              // console.log(state);
+                // console.log(state.chosenAddressId)
                 getAddressDetail(state.chosenAddressId).then(res=>{
                 window.localStorage.setItem('chosenAddressId',state.chosenAddressId)
                 router.back()

@@ -130,7 +130,6 @@ export default {
 
 
         const goTo = () => {
-
             router.push({path: '/address', query:{getAddressId_flag:'1'}})
         }
 

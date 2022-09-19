@@ -185,8 +185,6 @@ export default {
             onSubmit
         }
     },
-
-
     components: {
         Navbar
     }

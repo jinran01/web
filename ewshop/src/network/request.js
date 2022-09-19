@@ -4,7 +4,9 @@ import router from '../router'
 import {ref} from "vue";
 export function request(config){
     const instance = axios.create({
-        baseURL: 'https://api.shop.eduwork.cn',
+
+        baseURL: 'http://47.92.51.18',
+        // baseURL: 'https://api.shop.eduwork.cn',
         timeout: 10000,
     })
 

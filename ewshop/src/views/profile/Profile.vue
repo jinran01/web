@@ -44,9 +44,9 @@
                 退出
             </van-button>
 
-            <van-button @click="test" round block style="background-color:#42b983;color:white">
-                解锁
-            </van-button>
+<!--            <van-button @click="test" round block style="background-color:#42b983;color:white">-->
+<!--                解锁-->
+<!--            </van-button>-->
         </div>
     </div>
 </template>
@@ -90,18 +90,19 @@ export default {
         // }
         const tologout = () => {
           logout().then(res=>{
-              if(res.status == '204'){
-                  Toast.success('退出成功')
-                  //清除token
+            // console.log(res)
+              if(res.code == '200'){
 
+                  // Toast.success(res.message)
+                  //清除token
                   window.localStorage.setItem('token','');
                   store.commit('setIsLogin',false)
+                  Toast.success(res.message)
                   setTimeout(()=>{
                     router.push({path:'/login'})
                   },500)
-                  location.reload();
+                  // location.reload();
               }
-
           })
         }
 

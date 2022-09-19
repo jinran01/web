@@ -88,7 +88,6 @@ export default {
             getDtail(id.value).then(res=>{
                 book.detail = res.goods;
                 book.like_goods = res.like_goods;
-
             })
 
         })
@@ -127,9 +126,7 @@ export default {
 
         const goDe = () => {
             location.reload()
-
         }
-
 
         const Btop = ()=>{
             bscroll.scrollTo(0, 0, 300);

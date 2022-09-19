@@ -9,6 +9,15 @@ export function addAddress(params){
         params,
     })
 }
+
+//city_id
+export function getCity_id(county){
+    return request({
+        // url:'/api/city',
+        url:'/api/city/city_id?'+'county='+county,
+        // url:`/api/address/${1}`,
+    })
+}
 //编辑地址
 
 export function EditAddress(id,params){
@@ -46,3 +55,12 @@ export function getAddressDetail(id){
         method:'get',
     })
 }
+
+//是否为默认地址
+export function is_default(id){
+    return request({
+        url:`/api/address/${id}/default`,
+        method:'patch',
+    })
+}
+
